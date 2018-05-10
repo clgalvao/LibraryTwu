@@ -1,4 +1,6 @@
 package com.twu.biblioteca;
+import com.twu.model.Book;
+
 import java.util.ArrayList;
 
 public class BibliotecaApp {
@@ -24,9 +26,11 @@ public class BibliotecaApp {
 
     }
 
-    public static ArrayList<Book> showBooks() {
-            ArrayList<Book> bookList = new ArrayList<Book>();
-            bookList.add(new Book());
-            return bookList;
+    public static String showBooks()
+    {
+        
+        return "" ;
     }
+
+
 }

@@ -1,7 +1,10 @@
 package com.twu.biblioteca;
+import com.twu.model.Book;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 
 
 public class MenuTest {
@@ -21,31 +24,6 @@ public class MenuTest {
     }
 
 
-    @Test
-    public void shouldReturnAListOfBooks()
-    {
-        ArrayList<Book> bookCompare = new ArrayList();
-        bookCompare.add(new Book());
-
-        Assert.assertEquals(bookCompare.getClass(),BibliotecaApp.showBooks().getClass());
-    }
-
-    @Test
-    public void shouldReturnBookIntoAList()
-    {
-        Book bookCompare = new Book();
-        Assert.assertEquals(bookCompare.getClass(),BibliotecaApp.showBooks().get(0).getClass());
-    }
-
-
-    @Test
-    public void shouldReturnAListWithBooks()
-    {
-        ArrayList<Book> bookCompare = new ArrayList();
-        bookCompare.add(new Book());
-        bookCompare.add(new Book());
-        Assert.assertEquals(bookCompare.size() != 0,BibliotecaApp.showBooks().size() != 0);
-    }
 
 
 
