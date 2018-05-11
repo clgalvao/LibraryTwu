@@ -7,4 +7,6 @@ import java.util.ArrayList;
 public interface IBookActions {
 
     ArrayList<Book> seedBooks();
+
+    boolean checkOutBook(int id);
 }

@@ -33,9 +33,14 @@ public class BookTest {
     public void shouldReturnAListWithBooks()
     {
         ArrayList<Book> bookCompare = new ArrayList();
-        bookCompare.add(new Book());
-        bookCompare.add(new Book());
+        bookCompare.add(new Book("LotR:Fellowship of the Ring","J.R.R Tolkien", "1954"));
+        bookCompare.add(new Book("The Hobbit","J.R.R Tolkien", "1937"));
+        bookCompare.add(new Book("Silmarilion","J.R.R Tolkien", "1977"));
         Assert.assertThat(bookBusinessTest.seedBooks().size(),is(not(0)));
     }
 
+    @Test
+    public void checkoutABook() {
+        Assert.assertTrue(bookBusinessTest.checkOutBook(1));
+    }
 }
