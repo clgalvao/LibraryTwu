@@ -3,10 +3,13 @@ package com.twu.interfaces;
 import com.twu.model.Book;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface IBookActions {
 
-    ArrayList<Book> seedBooks();
+    HashMap<String,Book> seedBooks();
 
-    boolean checkOutBook(int id);
+    boolean checkOutBook(String id);
+
+    boolean checkInBook(String id);
 }

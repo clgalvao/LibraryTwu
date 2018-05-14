@@ -20,6 +20,7 @@ public class MenuTest {
                                       +"========================\n"
                                       +"|   1 - LIST BOOKS     |\n"
                                       +"|   2 - CHECKOUT BOOK  |\n"
+                                      +"|   3 - CHECK-IN BOOK  |\n"
                                       +"|   10 - QUIT          |\n"
                                       +"========================", BibliotecaAppTest.showMenu());
     }
@@ -34,7 +35,7 @@ public class MenuTest {
     public void menuListBooksOption()
     {
         ArrayList<Book> bookCompare = new ArrayList();
-        bookCompare.add(new Book("LotR:Fellowship of the Ring","J.R.R Tolkien", "1954"));
+        bookCompare.add(new Book(1,"LotR:Fellowship of the Ring","J.R.R Tolkien", "1954",false));
 
         Assert.assertTrue(BibliotecaAppTest.selectMenuOption("1").contains(bookCompare.get(0).author));
     }

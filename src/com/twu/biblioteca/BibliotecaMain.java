@@ -22,9 +22,9 @@ public class BibliotecaMain {
         String comand = "";
         System.out.println(bookApp.showWelcomeMessage());
         System.out.println(bookApp.showMenu());
-        while (comand != "10")
+        while (!comand.equals("10"))
         {
-           comand = keyboard.next();
+           comand = keyboard.next().toString();
             System.out.println(bookApp.selectMenuOption(comand));
         }
     }

@@ -2,12 +2,14 @@ package com.twu.biblioteca;
 import com.twu.model.Book;
 import com.twu.business.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class BibliotecaApp {
 
     private BookBusiness bookBusiness = new BookBusiness();
 
-    private String leftAlignFormat = "| %-30s | %-18s | %-5s |%n";
+    private String leftAlignFormat = "|%-5s| %-30s | %-18s | %-5s |%n";
 
 
     public String selectMenuOption(String option) {
@@ -15,13 +17,33 @@ public class BibliotecaApp {
         switch (option)
         {
             case "1":
-             return  showBooks();
+                return  showBooks();
+            case "2":
+                return checkoutBook();
+            case "3":
+                return checkInBook();
+            case "10":
+                return "Bye!";
             default:
-              return  "Select a valid option!";
+                return  "Select a valid option!";
         }
     }
 
+    public String checkoutBook()
+    {
+        System.out.println(showBooks());
+        Scanner keyboard = new Scanner(System.in);
 
+        return bookBusiness.checkOutBook(keyboard.next()) ? "Thank you! Enjoy the book":"That book is not available!";
+    }
+
+    public String checkInBook()
+    {
+        System.out.println(showBooks());
+        Scanner keyboard = new Scanner(System.in);
+
+        return bookBusiness.checkInBook(keyboard.next()) ? "Thank you for returning the book.":"That is not a valid book to return.";
+    }
 
 
     public  String showWelcomeMessage() {
@@ -39,19 +61,21 @@ public class BibliotecaApp {
 
     }
 
+
+
     protected String showBooks()
     {
-        ArrayList<Book> bookList = bookBusiness.seedBooks();
+        HashMap<String,Book> bookList = bookBusiness.seedBooks();
         String books ="";
 
-        books +="+--------------------------------+--------------------+-------+\n";
-        books +="| CATALOG                        | AUTHOR             | YEAR  |\n";
-        books +="+--------------------------------+--------------------+-------+\n";
-        for (Book bk : bookList) {
-           books += String.format(leftAlignFormat,bk.title,bk.author,bk.year);
+        books +="+-----+--------------------------------+--------------------+-------+\n";
+        books +="| ID  | CATALOG                        | AUTHOR             | YEAR  |\n";
+        books +="+-----+--------------------------------+--------------------+-------+\n";
+        for (Book bk : bookList.values()) {
+           books += String.format(leftAlignFormat,bk.id,bk.title,bk.author,bk.year);
 
         }
-        books += "+--------------------------------+--------------------+-------+\n";
+        books += "+-----+--------------------------------+--------------------+-------+\n";
         return books;
     }
 
