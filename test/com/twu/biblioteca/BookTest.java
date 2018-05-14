@@ -48,6 +48,6 @@ public class BookTest {
 
     @Test
     public void checkInABook() {
-        Assert.assertTrue(bookBusinessTest.checkInBook("2"));
+        Assert.assertTrue(bookBusinessTest.checkInBook("3"));
     }
 }

@@ -17,7 +17,7 @@ public class BibliotecaApp {
         switch (option)
         {
             case "1":
-                return  showBooks();
+                return showBooks();
             case "2":
                 return checkoutBook();
             case "3":
@@ -31,6 +31,7 @@ public class BibliotecaApp {
 
     public String checkoutBook()
     {
+        System.out.println("Which book you want to CheckOut?");
         System.out.println(showBooks());
         Scanner keyboard = new Scanner(System.in);
 
@@ -39,14 +40,15 @@ public class BibliotecaApp {
 
     public String checkInBook()
     {
+        System.out.println("Which book you want to Check-In?");
         System.out.println(showBooks());
         Scanner keyboard = new Scanner(System.in);
 
-        return bookBusiness.checkInBook(keyboard.next()) ? "Thank you for returning the book.":"That is not a valid book to return.";
+            return bookBusiness.checkInBook(keyboard.next()) ? "Thank you for returning the book.":"That is not a valid book to return.";
     }
 
 
-    public  String showWelcomeMessage() {
+    public String showWelcomeMessage() {
         return "Welcome To TWU Library";
     }
 
@@ -55,6 +57,7 @@ public class BibliotecaApp {
                 +"========================\n"
                 +"|   1 - LIST BOOKS     |\n"
                 +"|   2 - CHECKOUT BOOK  |\n"
+                +"|   3 - CHECK-IN BOOK  |\n"
                 +"|   10 - QUIT          |\n"
                 +"========================";
 

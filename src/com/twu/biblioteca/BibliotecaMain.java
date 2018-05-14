@@ -9,15 +9,14 @@ public class BibliotecaMain {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         menuControl();
 
     }
 
 
-    public static void menuControl()
-    {
+    public static void menuControl() throws IOException {
         Scanner keyboard = new Scanner(System.in);
         String comand = "";
         System.out.println(bookApp.showWelcomeMessage());
@@ -25,7 +24,8 @@ public class BibliotecaMain {
         while (!comand.equals("10"))
         {
            comand = keyboard.next().toString();
-            System.out.println(bookApp.selectMenuOption(comand));
+           System.out.println(bookApp.selectMenuOption(comand));
+           System.out.println(bookApp.showMenu());
         }
     }
 }

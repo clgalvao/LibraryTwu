@@ -39,6 +39,6 @@ public class BookBusiness implements IBookActions {
             booksStore.put(id,checkOutBook);
             return true;
         }
-        return true;
+        return false;
     }
 }
