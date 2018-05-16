@@ -2,12 +2,13 @@ package com.twu.business;
 
 import com.twu.Repository.BookRepository;
 import com.twu.Repository.MovieRepository;
+import com.twu.interfaces.IMovieActions;
 import com.twu.model.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieBusiness {
+public class MovieBusiness implements IMovieActions {
     MovieRepository movieRepository = new MovieRepository();
 
     public Movie findBookByName(String name)
