@@ -23,7 +23,7 @@ public class BibliotecaMain {
         System.out.println(bookApp.showMenu());
         while (!comand.equals("10"))
         {
-           comand = keyboard.next().toString();
+           comand = keyboard.nextLine().toString();
            System.out.println(bookApp.selectMenuOption(comand));
            System.out.println(bookApp.showMenu());
         }

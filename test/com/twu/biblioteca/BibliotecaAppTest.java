@@ -4,13 +4,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;
 
-public class MenuTest {
-    private BibliotecaApp BibliotecaAppTest = new BibliotecaApp();
+public class BibliotecaAppTest {
+    private BibliotecaApp bibliotecaApp = new BibliotecaApp();
 
     @Test
     public void welcomeMessage()
     {
-        Assert.assertEquals("Welcome To TWU Library",BibliotecaAppTest.showWelcomeMessage());
+        Assert.assertEquals("Welcome To TWU Library", bibliotecaApp.showWelcomeMessage());
     }
 
     @Test
@@ -22,13 +22,13 @@ public class MenuTest {
                                       +"|   2 - CHECKOUT BOOK  |\n"
                                       +"|   3 - CHECK-IN BOOK  |\n"
                                       +"|   10 - QUIT          |\n"
-                                      +"========================", BibliotecaAppTest.showMenu());
+                                      +"========================", bibliotecaApp.showMenu());
     }
 
     @Test
     public void menuWrongOption()
     {
-        Assert.assertEquals("Select a valid option!",BibliotecaAppTest.selectMenuOption(""));
+        Assert.assertEquals("Select a valid option!", bibliotecaApp.selectMenuOption(""));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class MenuTest {
         ArrayList<Book> bookCompare = new ArrayList();
         bookCompare.add(new Book(1,"LotR:Fellowship of the Ring","J.R.R Tolkien", "1954",false));
 
-        Assert.assertTrue(BibliotecaAppTest.selectMenuOption("1").contains(bookCompare.get(0).author));
+        Assert.assertTrue(bibliotecaApp.selectMenuOption("1").contains(bookCompare.get(0).author));
     }
 
 

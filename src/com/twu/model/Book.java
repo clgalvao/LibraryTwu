@@ -11,6 +11,7 @@ public class Book {
         this.year = year;
         this.available = available;
     }
+
     public int id;
     public String title;
     public String author;

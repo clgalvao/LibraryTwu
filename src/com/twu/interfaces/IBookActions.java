@@ -4,12 +4,13 @@ import com.twu.model.Book;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public interface IBookActions {
 
-    HashMap<String,Book> seedBooks();
+    boolean checkOutBook(String name);
 
-    boolean checkOutBook(String id);
+    boolean checkInBook(String name);
 
-    boolean checkInBook(String id);
+    List<Book> getAvalaibleBooks();
 }
