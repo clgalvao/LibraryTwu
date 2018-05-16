@@ -31,4 +31,30 @@ public class MovieRepository {
         }
         return availableMovies;
     }
+
+
+    public boolean checkoutMovie(String name)
+    {
+        List<Movie> movieStore = getAllMovies();
+        if (findMovieByName(name).available)
+        {
+            Movie checkoutMovie = findMovieByName(name);
+            checkoutMovie.available = false;
+            movieStore.remove(movieStore.indexOf(checkoutMovie));
+            movieStore.add(checkoutMovie);
+            return true;
+        }
+
+        return false;
+    }
+
+    private Movie findMovieByName(String name) {
+        Movie lookingMovie = new Movie();
+        for (int i = 0; i < getAllMovies().size(); i++)
+        {
+            if(getAllMovies().get(i).name.equals(name))
+                lookingMovie = getAllMovies().get(i);
+        }
+        return lookingMovie;
+    }
 }

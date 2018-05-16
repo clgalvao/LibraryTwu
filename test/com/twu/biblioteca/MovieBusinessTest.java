@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.twu.business.MovieBusiness;
 import com.twu.model.Movie;
 import org.junit.Assert;
@@ -23,5 +25,14 @@ public class MovieBusinessTest
         MovieBusiness movieBusinessTest = new MovieBusiness();
         List<Movie> listAvailable = movieBusinessTest.getAvailableMovies();
         Assert.assertNotEquals(listAvailable,movieBusinessTest.getAllMovies());
+    }
+
+    @Test
+    public void cheoutMovie() {
+        MovieBusiness movieBusinessTest = new MovieBusiness();
+        List<Movie> listAvailable = movieBusinessTest.getAvailableMovies().subList(0,movieBusinessTest.getAvailableMovies().size());
+        boolean cheoutSucessful = movieBusinessTest.checkoutMovie("The Hobbit");
+        Assert.assertNotEquals(listAvailable,movieBusinessTest.getAvailableMovies());
+
     }
 }

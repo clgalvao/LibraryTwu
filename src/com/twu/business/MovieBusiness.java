@@ -23,4 +23,8 @@ public class MovieBusiness {
     public List<Movie> getAllMovies() {
         return movieRepository.getAllMovies();
     }
+
+    public boolean checkoutMovie(String name) {
+        return movieRepository.checkoutMovie(name);
+    }
 }

@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 import com.twu.model.Book;
 import com.twu.business.*;
+import com.twu.model.Movie;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,8 +12,10 @@ public class BibliotecaApp
 {
 
     private BookBusiness bookBusiness = new BookBusiness();
+    private MovieBusiness movieBusiness = new MovieBusiness();
 
-    private String leftAlignFormat = "|%-5s| %-30s | %-18s | %-5s |%n";
+    private String leftAlignFormatBook = "|%-5s| %-30s | %-18s | %-5s |%n";
+    private String leftAlignFormatMovie = "|%-5s| %-30s | %-18s | %-5s | %-2s  |%n";
 
 
     public String selectMenuOption(String option)
@@ -25,6 +29,8 @@ public class BibliotecaApp
                 return checkoutBook();
             case "3":
                 return checkInBook();
+            case "4":
+                return showMovies();
             case "10":
                 return "Bye!";
             default:
@@ -38,6 +44,32 @@ public class BibliotecaApp
         System.out.println(showBooks());
 
         return bookBusiness.checkOutBook(choseControl()) ? "Thank you! Enjoy the book":"Something Happen Try Again.";
+    }
+
+
+
+    public String checkoutMovie()
+    {
+        System.out.println("Which movie you want to CheckOut?");
+        System.out.println(showMovies());
+
+        return movieBusiness.checkoutMovie(choseControl()) ? "Thank you! Enjoy the Movie":"Something Happen Try Again.";
+    }
+
+    protected String showMovies() {
+        List<Movie> movieList = movieBusiness.getAvailableMovies();
+        String movies ="";
+
+        movies +="+-----+--------------------------------+--------------------+-------+-----+\n";
+        movies +="| ID  | MOVIE                          | DIRECTOR           | YEAR  | RATE|\n";
+        movies +="+-----+--------------------------------+--------------------+-------+------\n";
+        for (Movie mv : movieList) {
+            movies += String.format(leftAlignFormatMovie,mv.id,mv.name,mv.director,mv.year,Integer.toString(mv.rating));
+
+        }
+        movies += "+-----+--------------------------------+--------------------+-------+-----+\n";
+        return movies;
+
     }
 
 
@@ -73,6 +105,7 @@ public class BibliotecaApp
                 +"|   1 - LIST BOOKS     |\n"
                 +"|   2 - CHECKOUT BOOK  |\n"
                 +"|   3 - CHECK-IN BOOK  |\n"
+                +"|   4 - CHECKOUT MOVIE |\n"
                 +"|   10 - QUIT          |\n"
                 +"========================";
 
@@ -90,7 +123,7 @@ public class BibliotecaApp
         books +="| ID  | CATALOG                        | AUTHOR             | YEAR  |\n";
         books +="+-----+--------------------------------+--------------------+-------+\n";
         for (Book bk : bookList) {
-           books += String.format(leftAlignFormat,bk.id,bk.title,bk.author,bk.year);
+           books += String.format(leftAlignFormatBook,bk.id,bk.title,bk.author,bk.year);
 
         }
         books += "+-----+--------------------------------+--------------------+-------+\n";
