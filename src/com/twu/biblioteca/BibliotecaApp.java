@@ -6,14 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class BibliotecaApp {
+public class BibliotecaApp
+{
 
     private BookBusiness bookBusiness = new BookBusiness();
 
     private String leftAlignFormat = "|%-5s| %-30s | %-18s | %-5s |%n";
 
 
-    public String selectMenuOption(String option) {
+    public String selectMenuOption(String option)
+    {
 
         switch (option)
         {
@@ -59,11 +61,13 @@ public class BibliotecaApp {
     }
 
 
-    public String showWelcomeMessage() {
+    public String showWelcomeMessage()
+    {
         return "Welcome To TWU Library";
     }
 
-    public String showMenu() {
+    public String showMenu()
+    {
         return "|       Main Menu      |\n"
                 +"========================\n"
                 +"|   1 - LIST BOOKS     |\n"

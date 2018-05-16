@@ -1,6 +1,6 @@
 package com.twu.model;
 
-public class Book {
+public class Book extends Product{
     public Book() {
     }
 
@@ -12,10 +12,8 @@ public class Book {
         this.available = available;
     }
 
-    public int id;
     public String title;
     public String author;
-    public String year;
-    public boolean available;
+
 
 }

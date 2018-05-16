@@ -4,19 +4,22 @@ import java.util.Scanner;
 
 import com.twu.*;
 
-public class BibliotecaMain {
+public class BibliotecaMain
+{
     public static BibliotecaApp bookApp = new BibliotecaApp();
 
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException
+    {
 
         menuControl();
 
     }
 
 
-    public static void menuControl() throws IOException {
+    public static void menuControl() throws IOException
+    {
         Scanner keyboard = new Scanner(System.in);
         String comand = "";
         System.out.println(bookApp.showWelcomeMessage());

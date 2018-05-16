@@ -5,12 +5,14 @@ import com.twu.model.Book;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookBusiness implements IBookActions {
+public class BookBusiness implements IBookActions
+{
 
     BookRepository bookRep = new BookRepository();
 
 
-    public boolean checkOutBook(String name) {
+    public boolean checkOutBook(String name)
+    {
 
         if (bookRep.findBookByName(name).available)
         {
@@ -21,7 +23,8 @@ public class BookBusiness implements IBookActions {
     }
 
 
-    public boolean checkInBook(String name) {
+    public boolean checkInBook(String name)
+    {
 
         if (!bookRep.findBookByName(name).available)
         {
@@ -32,7 +35,9 @@ public class BookBusiness implements IBookActions {
 
 
 
-    public List<Book> getAvalaibleBooks() {
+
+    public List<Book> getAvalaibleBooks()
+    {
         return bookRep.getAvalaibleBooks();
     }
 

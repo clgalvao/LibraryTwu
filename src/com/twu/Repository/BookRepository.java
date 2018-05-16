@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import com.twu.model.Book;
 
-public class BookRepository {
+public class BookRepository
+{
 
-    public BookRepository() {
-    }
+    public BookRepository(){}
 
     public static List<Book> bookList = new ArrayList<>();
 
 
-    public Book findBookByName(String name) {
+    public Book findBookByName(String name)
+    {
         Book lookingBook = new Book();
         for (int i = 0; i < getBooks().size(); i++)
         {
@@ -21,7 +22,8 @@ public class BookRepository {
         }
         return lookingBook;
     }
-    public boolean checkOutBook(String name) {
+    public boolean checkOutBook(String name)
+    {
         List<Book> booksStore = getBooks();
         if (findBookByName(name).available)
         {
@@ -36,7 +38,8 @@ public class BookRepository {
     }
 
 
-    public boolean checkInBook(String name) {
+    public boolean checkInBook(String name)
+    {
         List<Book> booksStore = getBooks();
         if (!findBookByName(name).available)
         {
@@ -50,7 +53,8 @@ public class BookRepository {
     }
 
 
-    public List<Book> getBooks() {
+    public List<Book> getBooks()
+    {
 
         if((bookList.size() == 0)) {
             bookList = new ArrayList<>();
@@ -64,7 +68,8 @@ public class BookRepository {
     }
 
 
-    public List<Book> getAvalaibleBooks() {
+    public List<Book> getAvalaibleBooks()
+    {
        List<Book> booksAvaleible = new ArrayList<>();
         for (int i = 0; i < getBooks().size(); i++)
         {
