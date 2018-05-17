@@ -31,6 +31,8 @@ public class BibliotecaApp
                 return checkInBook();
             case "4":
                 return showMovies();
+            case"5":
+                return checkoutMovie();
             case "10":
                 return "Bye!";
             default:
